@@ -15,10 +15,10 @@ public class Dish {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Integer id;
   private String name;
-  private int preperationTime;
-  private int price;
+  private Integer preperationTime;
+  private Integer price;
 
-  public Dish(String name, int preperationTime, int price) {
+  public Dish(String name, Integer preperationTime, Integer price) {
     this.name = name;
     this.preperationTime = preperationTime;
     this.price = price;
