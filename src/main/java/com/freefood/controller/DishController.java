@@ -16,6 +16,12 @@ public class DishController {
   private EntityManager em;
 
   @Transactional
+  @RequestMapping(path = "insertData", method = RequestMethod.GET)
+  public void insertData() {
+    insert("ab", 10, 30);insert("cd", 5, 40);insert("ea", 0, 20);
+  }
+  
+  @Transactional
   @RequestMapping(path = "{name}/{preperationTime}/{price}", method = RequestMethod.POST)
   public Dish insert(@PathVariable("name") String name,
       @PathVariable("preperationTime") Integer preperationTime,

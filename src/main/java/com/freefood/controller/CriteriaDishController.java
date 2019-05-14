@@ -5,7 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,8 +40,8 @@ public class CriteriaDishController {
     criteriaQuery.select(criteriaBuilder.min(dish.get("price")));
     return em.createQuery(criteriaQuery).getSingleResult();
   }
-  //http://localhost:8098/c/dish/lowestPrice/
-  @RequestMapping(path = "lessThanPriceDishes/", method = RequestMethod.GET)
+  //http://localhost:8098/c/dish/lessThanPriceDishes
+  @RequestMapping(path = "lessThanPriceDishes", method = RequestMethod.GET)
   public List<Dish> getDishesWithLessPrice() {
     Integer price = getLowestPrice();
     CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -53,7 +52,7 @@ public class CriteriaDishController {
     return em.createQuery(criteriaQuery).getResultList();
   }
   
-//http://localhost:8098/c/dish/lessThanPrice
+//http://localhost:8098/c/dish/lessThanPrice/30
   @RequestMapping(path = "lessThanPrice/{price}", method = RequestMethod.GET)
   public List<Dish> getDishesWithLessPrice(@PathVariable("price") Integer price) {
     CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -63,21 +62,5 @@ public class CriteriaDishController {
     criteriaQuery.where(predicate);
     return em.createQuery(criteriaQuery).getResultList();
   }
-
-//  @Transactional
-//  @RequestMapping(path = "{id}/{name}", method = RequestMethod.PUT)
-//  public Dish update(@PathVariable("id") Integer id, @PathVariable("name") String name) {
-//    Dish dish = getDish(id);
-//    dish.setName(name);
-//    em.persist(dish);
-//    return getDish(id);
-//  }
-//
-//  @Transactional
-//  @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
-//  public Boolean delete(@PathVariable("id") Integer id) {
-//    em.remove(getDish(id));
-//    return true;
-//  }
 
 }
