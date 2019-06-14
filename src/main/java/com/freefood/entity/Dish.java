@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +27,7 @@ public class Dish {
   
   private Boolean isAvailable;
   
+  @OneToMany(mappedBy="dish")
   private List<SubOrder> orders;
 
   public Dish(String name, Integer preperationTime, Integer price) {
