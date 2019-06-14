@@ -1,5 +1,6 @@
 package com.freefood.entity;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,8 @@ public class Dish {
   private Integer quantity;
   
   private Boolean isAvailable;
+  
+  private List<SubOrder> orders;
 
   public Dish(String name, Integer preperationTime, Integer price) {
     this.name = name;
