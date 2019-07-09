@@ -45,3 +45,16 @@ public class Dish {
   }
 
 }
+
+
+
+/*Post Json--http://localhost:8098/dish/
+ {
+    "name":"Dosa",
+    "preperationTime":5,
+    "price":40,
+    "quantity":20,
+    "isAvailable":true
+    
+}
+*/
