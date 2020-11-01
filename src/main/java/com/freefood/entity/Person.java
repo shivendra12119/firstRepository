@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Person{
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
